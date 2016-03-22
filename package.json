@@ -1,8 +1,12 @@
 {
-  "name": "koara",
+  "name": "koara-html",
   "description": "Koara to Html parser written in Javascript",
   "version": "0.6.2",
-  "keywords": ["koara", "markup", "html"],
+  "keywords": [
+    "koara",
+    "markup",
+    "html"
+  ],
   "author": "Andy Van Den Heuvel <andy.vandenheuvel@gmail.com>",
   "homepage": "http://www.koara.io",
   "license": "Apache-2.0",
@@ -29,7 +33,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "jasmine-core": "^2.4.1",
-    "koara": "*",
+    "koara": "^0.6.2",
     "phantomjs-prebuilt": "^2.1.5",
     "reactify": "^1.1.1",
     "vinyl-buffer": "^1.0.0",

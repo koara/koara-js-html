@@ -16,7 +16,7 @@ var sourcemaps = require('gulp-sourcemaps');
 gulp.task('default', ['lint', 'bundle', 'test']);
 
 gulp.task('bundle', function() {
-	var b = browserify({ entries: './index.js', debug: true, transform: [reactify] });
+	var b = browserify({ entries: './index.js', standalone: 'koaraHtml', debug: true, transform: [reactify] });
 	return b.bundle()
 	    .pipe(source('index.js'))
 	    .pipe(rename('koara-html.js'))

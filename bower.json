@@ -1,5 +1,5 @@
 {
-  "name": "koara",
+  "name": "koara-html",
   "description": "Koara to Html parser written in Javascript",
   "license": "Apache 2.0",
   "keywords": ["koara", "markup", "html"],
