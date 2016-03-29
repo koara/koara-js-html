@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/koara/koara-java-html/blob/master/LICENSE)
 
 # koara-js-html
-[Koara](http://www.koara.io) is a modular lightweight markup language. This project is for parsing Koara to Html.
+[Koara](http://www.koara.io) is a modular lightweight markup language. This project is for parsing Koara to Html without external dependencies.
 
 ## Getting Started
 - Via Npm:
