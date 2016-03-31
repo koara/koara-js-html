@@ -1,4 +1,5 @@
 node_modules
 .classpath
 .project
+.coveralls.yml
 .DS_Store
