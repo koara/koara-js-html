@@ -64,3 +64,9 @@ Browser:
   </body>
 </html>
 ```
+
+## Configuration
+### Parser
+### Renderer
+- `partial`: 
+  When false, the output will wrap the content to make a complete HTML document. (default: true) 
