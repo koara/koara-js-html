@@ -2,71 +2,43 @@
 
 [![Build Status](https://img.shields.io/travis/koara/koara-js-html.svg)](https://travis-ci.org/koara/koara-js-html)
 [![Coverage Status](https://img.shields.io/coveralls/koara/koara-js-html.svg)](https://coveralls.io/github/koara/koara-js-html?branch=master)
-[![Latest Version](https://img.shields.io/npm/v/koara-html.svg)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/koara/koara-java-html/blob/master/LICENSE)
+[![Latest Version](https://img.shields.io/maven-central/v/io.koara/koara-html.svg?label=Maven Central)](http://search.maven.org/#search%7Cga%7C1%7Ckoara-html)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/koara/koara-js-html/blob/master/LICENSE)
 
-# koara-js-html
-[Koara](http://www.koara.io) is a modular lightweight markup language. This project is for parsing Koara to Html without external dependencies.
+# Koara-js-html
+[Koara](http://www.koara.io) is a modular lightweight markup language. This project can render the koara AST to Html in Javascript.  
+The AST is created by the [core koara parser](https://github.com/koara/koara-js).
 
-## Getting Started
-- Via Npm:
+## Getting started
+- Download [ZIP file]()
+- Npm
 
   ```bash
   npm install koara-html --save-dev
   ```
   
+- Bower
+
+  ```xml
+  bower install koara-html
+  ```
 
 ## Usage
-
-Node:
-
-```javascript
+```js
 var koara = require('koara');
 var koaraHtml = require('koara-html');
 
 var parser = new koara.Parser();
-
-//Enable which modules to parse (all are parsed by default)
-parser.modules = ['paragraphs', 'headings', 'lists', 'links', 'images', 'formatting', 'blockquotes', 'code'];
-
-//Parse string or file and generate AST
-var document = parser.parse('Hello World!'); 
-
-//Render as Html
+var doc = parser.parse("Hello World!"); // parse a string
 var renderer = new koaraHtml.Html5Renderer();
-document.accept(renderer);
-
+doc.accept(renderer);
 console.log(renderer.getOutput());
 ```
 
-Browser:
-
-```javascript
-<html>
-  <body>
-    <script src="koara.js"></script>
-    <script src="koara-html.js"></script>     
-    <script>
-        var parser = new koara.Parser();
-        
-        //Enable which modules to parse (all are parsed by default)
-        parser.modules = ['paragraphs', 'headings', 'lists', 'links', 'images', 'formatting', 'blockquotes', 'code'];
-
-        //Parse string or file and generate AST
-        var doc = parser.parse('Hello World!');
-        
-        //Render as Html
-        var renderer = new koaraHtml.Html5Renderer();
-        doc.accept(renderer);  
-        
-        console.log(renderer.getOutput());
-     </script>
-  </body>
-</html>
-```
-
 ## Configuration
-### Parser
-### Renderer
-- `partial`: 
-  When false, the output will wrap the content to make a complete HTML document. (default: true) 
+You can configure the Renderer:
+
+-  **renderer.partial**  
+   Default:	`true`
+   
+   When false, the output will be wrapped with a `<html>` and `<body>` tag to make a complete Html document.
