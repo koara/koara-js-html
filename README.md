@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/koara/koara-js-html.svg)](https://travis-ci.org/koara/koara-js-html)
 [![Coverage Status](https://img.shields.io/coveralls/koara/koara-js-html.svg)](https://coveralls.io/github/koara/koara-js-html?branch=master)
-[![Latest Version](https://img.shields.io/maven-central/v/io.koara/koara-html.svg?label=Maven Central)](http://search.maven.org/#search%7Cga%7C1%7Ckoara-html)
+[![Latest Version](https://img.shields.io/npm/v/koara-html.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/koara/koara-js-html/blob/master/LICENSE)
 
 # Koara-js-html
@@ -24,16 +24,37 @@ The AST is created by the [core koara parser](https://github.com/koara/koara-js)
   ```
 
 ## Usage
-```js
-var koara = require('koara');
-var koaraHtml = require('koara-html');
+- Node
 
-var parser = new koara.Parser();
-var doc = parser.parse("Hello World!"); // parse a string
-var renderer = new koaraHtml.Html5Renderer();
-doc.accept(renderer);
-console.log(renderer.getOutput());
-```
+  ```js
+  var koara = require('koara');
+  var koaraHtml = require('koara-html');
+
+  var parser = new koara.Parser();
+  var result = parser.parse("Hello World!");
+  var renderer = new koaraHtml.Html5Renderer();
+  result.accept(renderer);
+  console.log(renderer.getOutput());
+  ```
+  
+- Browser
+  
+  ```js
+  <!doctype html>
+  <html>
+    <body>
+      <script type="text/javascript" src="koara.min.js"></script>
+      <script type="text/javascript" src="koara-html.min.js"></script>
+      <script type="text/javascript">
+        var parser = new koara.Parser();
+        var result = parser.parse("Hello World!");
+        var renderer = new koaraHtml.Html5Renderer();
+        result.accept(renderer);
+        document.write(renderer.getOutput());
+      </script>
+    </body>
+  </html>
+  ```
 
 ## Configuration
 You can configure the Renderer:
