@@ -4,21 +4,26 @@ var koara = require('koara');
 var koaraHtml = require('../lib/koara-html');
 
 describe("Html5RendererTest", function() {
-	var renderer;
-	var document;
 
 	beforeEach(function() {
-		var parser = new koara.Parser();
-		this.document = parser.parse("Test");
+		this.parser = new koara.Parser();
 		this.renderer = new koaraHtml.Html5Renderer();
 	});
 
-	it("Test Basic", function() {
+	it("testRender", function() {
+        this.document = this.parser.parse("Test");
 		this.document.accept(this.renderer);
 		expect(this.renderer.getOutput()).toEqual("<p>Test</p>");
 	});
+
+    it("testRenderHardwrapTrue", function() {
+        this.renderer.hardWrap = true;
+        this.document = this.parser.parse("a\nb");
+        this.document.accept(this.renderer);
+        expect(this.renderer.getOutput()).toEqual("<p>a<br>\nb</p>");
+    });
 	
-	it("Test No Partial Result", function() {
+	it("testRenderPartialFalse", function() {
 		var expected = "<!DOCTYPE html>\n";
 		expected += "<html>\n";
 		expected += "  <body>\n";
@@ -27,8 +32,24 @@ describe("Html5RendererTest", function() {
 		expected += "</html>\n";
 		
 		this.renderer.partial = false;
+        this.document = this.parser.parse("Test");
 		this.document.accept(this.renderer);
 		expect(this.renderer.getOutput()).toEqual(expected);
 	});
+
+    it("testHeadingIdsTrue", function() {
+        this.renderer.headingIds = true;
+        this.document = this.parser.parse("= A");
+        this.document.accept(this.renderer);
+        expect(this.renderer.getOutput()).toEqual("<h1 id=\"a\">A</h1>");
+    });
+
+    it("testHeadingIdsTrueMultipleWords", function() {
+        this.renderer.headingIds = true;
+        this.document = this.parser.parse("= This is a test");
+        this.document.accept(this.renderer);
+        expect(this.renderer.getOutput()).toEqual("<h1 id=\"this_is_a_test\">This is a test</h1>");
+
+    });
 	
 });
