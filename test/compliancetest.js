@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var koara = require('koara');
+var koara = require('@koara/koara');
 var koaraHtml = require('../lib/koara-html');
 var modules = fs.readdirSync('testsuite/input');
 var tests = [];

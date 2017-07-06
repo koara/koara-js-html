@@ -1,6 +1,6 @@
 'use strict';
 
-var koara = require('koara');
+var koara = require('@koara/koara');
 var koaraHtml = require('../lib/koara-html');
 
 describe("Html5RendererTest", function() {
