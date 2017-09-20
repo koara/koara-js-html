@@ -14,7 +14,7 @@ The AST is created by the [core koara parser](https://github.com/koara/koara-js)
 - Npm
 
   ```bash
-  npm install @koara/koara-html --save-dev
+  npm install @koara/html --save-dev
   ```
   
 - Bower
